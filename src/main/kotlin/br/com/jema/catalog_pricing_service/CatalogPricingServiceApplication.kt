@@ -1,0 +1,11 @@
+package br.com.jema.catalog_pricing_service
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+
+@SpringBootApplication
+class CatalogPricingServiceApplication
+
+fun main(args: Array<String>) {
+	runApplication<CatalogPricingServiceApplication>(*args)
+}
