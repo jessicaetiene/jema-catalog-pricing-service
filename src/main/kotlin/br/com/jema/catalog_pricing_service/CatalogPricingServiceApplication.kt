@@ -1,9 +1,16 @@
 package br.com.jema.catalog_pricing_service
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
 import org.springframework.boot.runApplication
 
-@SpringBootApplication
+@SpringBootApplication(
+	exclude = [
+		DataSourceAutoConfiguration::class,
+		HibernateJpaAutoConfiguration::class
+	]
+)
 class CatalogPricingServiceApplication
 
 fun main(args: Array<String>) {
