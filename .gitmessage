@@ -7,16 +7,3 @@
 # test: tests
 
 type(scope): short description
-
-# Task
-Related issue: #
-
-# Description
-Explain what this commit does.
-
-# Changes
--
--
-
-# Notes
-Optional additional information
