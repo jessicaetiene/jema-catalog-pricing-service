@@ -1,9 +1,12 @@
 spring:
   application:
     name: catalog-pricing-service
-  config:
-    activate:
-      on-profile: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalog_pricing_service
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
