@@ -52,7 +52,6 @@ Infrastructure -> Domain
 Config -> supports framework wiring
 Shared -> reusable across layers
 
-
 ---
 
 ## Technology Stack
