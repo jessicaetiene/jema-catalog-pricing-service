@@ -31,7 +31,7 @@ class ProductEntity (
     val active: Boolean,
 
     @Column(name = "created_at", nullable = false)
-    val createdAt: Instant,
+    val createdAt: Instant? = null,
 
     @Column(name = "updated_at")
     val updatedAt: Instant? = null
