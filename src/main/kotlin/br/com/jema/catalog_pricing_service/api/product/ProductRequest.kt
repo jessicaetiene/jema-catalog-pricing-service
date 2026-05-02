@@ -7,5 +7,5 @@ data class ProductRequest (
     val name: String,
     val description: String?,
     val price: BigDecimal,
-    val active: Boolean
+    val active: Boolean = true
 )
