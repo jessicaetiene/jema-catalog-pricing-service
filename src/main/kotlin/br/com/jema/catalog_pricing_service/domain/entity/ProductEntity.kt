@@ -23,7 +23,7 @@ class ProductEntity (
     @Column(columnDefinition = "TEXT")
     val description: String? = null,
 
-    @Column(name = "base_price", nullable = false, precision = 10, scale = 2)
+    @Column(name = "price", nullable = false, precision = 10, scale = 2)
     val price: BigDecimal,
 
 
