@@ -5,6 +5,8 @@ import br.com.jema.catalog_pricing_service.application.product.DeactivateProduct
 import br.com.jema.catalog_pricing_service.application.product.GetProductByIdUseCase
 import br.com.jema.catalog_pricing_service.application.product.ListProductsUseCase
 import br.com.jema.catalog_pricing_service.application.product.UpdateProductUseCase
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
@@ -19,7 +21,10 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.net.URI
-
+@Tag(
+    name = "Products",
+    description = "Endpoints for product catalog management"
+)
 @RestController
 @RequestMapping("/products")
 class ProductController(
@@ -32,6 +37,7 @@ class ProductController(
 
     private val logger = LoggerFactory.getLogger(javaClass)
 
+    @Operation(summary = "Create a new product")
     @PostMapping
     fun create(@Valid @RequestBody request: ProductRequest): ResponseEntity<ProductResponse> {
         logger.info("Creating product with name={}", request.name)
@@ -44,6 +50,7 @@ class ProductController(
             .body(product.toResponse())
     }
 
+    @Operation(summary = "Get a product by id")
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Long): ResponseEntity<ProductResponse> {
         logger.info("Find product with id={}", id)
@@ -52,6 +59,7 @@ class ProductController(
         return ResponseEntity.ok(product.toResponse())
     }
 
+    @Operation(summary = "List all products")
     @GetMapping
     fun list(): ResponseEntity<List<ProductResponse>> {
         logger.info("List products")
@@ -59,6 +67,7 @@ class ProductController(
         return ResponseEntity.ok(products?.map { it.toResponse() })
     }
 
+    @Operation(summary = "Update an existing product")
     @PutMapping("/{id}")
     fun update(@PathVariable id: Long, @Valid @RequestBody request: ProductRequest): ResponseEntity<ProductResponse> {
         logger.info("Update product with id={}", id)
@@ -66,6 +75,7 @@ class ProductController(
         return ResponseEntity.ok(product.toResponse())
     }
 
+    @Operation(summary = "Deactivate a product")
     @PatchMapping("/{id}/deactivate")
     fun deactivate(@PathVariable id: Long): ResponseEntity<ProductResponse> {
         logger.info("Deactivating product with id={}", id)
