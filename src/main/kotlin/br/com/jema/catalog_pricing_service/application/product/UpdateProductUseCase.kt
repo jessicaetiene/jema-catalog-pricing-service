@@ -5,6 +5,7 @@ import br.com.jema.catalog_pricing_service.domain.Product
 import br.com.jema.catalog_pricing_service.domain.repository.ProductRepository
 import br.com.jema.catalog_pricing_service.shared.exception.ProductNotFoundException
 import org.springframework.stereotype.Service
+import java.time.Instant
 
 @Service
 class UpdateProductUseCase(private val repository: ProductRepository) {
@@ -15,7 +16,8 @@ class UpdateProductUseCase(private val repository: ProductRepository) {
             name = productRequest.name,
             description = productRequest.description,
             price = productRequest.price,
-            active = productRequest.active
+            active = productRequest.active,
+            updatedAt = Instant.now()
         )
         return repository.save(updateProduct)
     }
