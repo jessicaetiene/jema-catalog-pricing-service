@@ -6,6 +6,8 @@ CREATE TABLE tbl_promotions (
                          startsAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                          endsAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                          active BOOLEAN NOT NULL,
-                         priority INTEGER
+                         priority INTEGER,
+                         created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                         updated_at TIMESTAMP
 
 );
