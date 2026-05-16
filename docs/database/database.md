@@ -8,7 +8,8 @@ Defines the database structure for the project Catalog Pricing Service
 
 ## Tables
 
-- Produts
+- Products
+- Promotions
 
 ---
 
