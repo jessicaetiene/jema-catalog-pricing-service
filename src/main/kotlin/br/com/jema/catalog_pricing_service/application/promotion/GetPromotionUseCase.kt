@@ -1,0 +1,14 @@
+package br.com.jema.catalog_pricing_service.application.promotion
+
+import br.com.jema.catalog_pricing_service.domain.Promotion
+import br.com.jema.catalog_pricing_service.domain.repository.PromotionRepository
+import br.com.jema.catalog_pricing_service.shared.exception.ProductNotFoundException
+import br.com.jema.catalog_pricing_service.shared.exception.PromotionNotFoundException
+
+class GetPromotionUseCase(
+    private val repository: PromotionRepository
+) {
+    fun execute(id: Long): Promotion{
+        return repository.findById(id) ?: throw PromotionNotFoundException(id)
+    }
+}

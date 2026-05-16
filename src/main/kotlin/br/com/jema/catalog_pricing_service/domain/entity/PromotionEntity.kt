@@ -39,5 +39,11 @@ class PromotionEntity (
     val active: Boolean,
 
     @Column(nullable = false)
-    val priority: Int
+    val priority: Int,
+
+    @Column(name = "created_at", nullable = false)
+    val createdAt: Instant? = null,
+
+    @Column(name = "updated_at")
+    val updatedAt: Instant? = null
 )
