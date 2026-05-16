@@ -30,10 +30,10 @@ class PromotionEntity (
     val value: BigDecimal,
 
     @Column(name = "startat", nullable = false)
-    val startAt: Instant? = null,
+    val startAt: Instant,
 
     @Column(name = "endat", nullable = false)
-    val endAt: Instant? = null,
+    val endAt: Instant,
 
     @Column(nullable = false)
     val active: Boolean,
