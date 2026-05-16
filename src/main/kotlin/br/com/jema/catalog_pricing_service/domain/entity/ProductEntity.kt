@@ -10,7 +10,7 @@ import java.math.BigDecimal
 import java.time.Instant
 
 @Entity
-@Table(name = "tbl_product")
+@Table(name = "tbl_products")
 class ProductEntity (
 
     @Id
