@@ -1,5 +1,6 @@
 package br.com.jema.catalog_pricing_service.application.promotion
 
+import br.com.jema.catalog_pricing_service.application.DataMockTest.Companion.productMock
 import br.com.jema.catalog_pricing_service.domain.Promotion
 import br.com.jema.catalog_pricing_service.domain.entity.PromotionEntity
 import br.com.jema.catalog_pricing_service.domain.entity.PromotionType
@@ -21,12 +22,11 @@ class DeactivatePromotionUseCaseTest {
     private val promotionRepository = mockk<PromotionRepository>()
     private val useCase = DeactivatePromotionUseCase(promotionRepository)
 
-
     @Test
     fun `should deactivate promotion successfully`() {
         val id = 1L
         val promotion = Promotion(
-            productId = 1L,
+            product = productMock,
             type = PromotionType.PERCENTUAL,
             value = BigDecimal("10.00"),
             startAt = Instant.parse("2026-01-01T00:00:00Z"),

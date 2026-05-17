@@ -4,22 +4,26 @@ import br.com.jema.catalog_pricing_service.domain.entity.PromotionEntity
 
 fun Promotion.toEntity(): PromotionEntity = PromotionEntity(
     id = id,
-    productId = productId,
+    product = product.toEntity(),
     type = type,
     value = value,
     startAt = startAt,
     endAt = endAt,
     active = active,
-    priority = priority
+    priority = priority,
+    createdAt = createdAt,
+    updatedAt = updatedAt
 )
 
 fun PromotionEntity.toDomain(): Promotion = Promotion(
     id = id,
-    productId = productId,
+    product = product.toDomain(),
     type = type,
     value = value,
     startAt = startAt,
     endAt = endAt,
     active = active,
-    priority = priority
+    priority = priority,
+    createdAt = createdAt,
+    updatedAt = updatedAt
 )
