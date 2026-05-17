@@ -46,7 +46,7 @@ class GetPromotionUseCaseTest {
         val result = useCase.execute(id)
 
         assertEquals(1L, result.id)
-        assertEquals(1L, result.product.id)
+        assertEquals(123L, result.product.id)
         assertEquals(PromotionType.PERCENTUAL, result.type)
         assertEquals(BigDecimal("10.00"), result.value)
     }
