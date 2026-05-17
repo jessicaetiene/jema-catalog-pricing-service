@@ -1,26 +1,28 @@
 package br.com.jema.catalog_pricing_service.application.promotion
 
+import br.com.jema.catalog_pricing_service.api.promotion.PromotionRequest
 import br.com.jema.catalog_pricing_service.domain.Promotion
 import br.com.jema.catalog_pricing_service.domain.entity.PromotionType
 import br.com.jema.catalog_pricing_service.domain.repository.PromotionRepository
 import br.com.jema.catalog_pricing_service.shared.exception.PromotionNotFoundException
+import org.springframework.stereotype.Service
 import java.math.BigDecimal
 import java.time.Instant
 import kotlin.Long
-
+@Service
 class UpdatePromotionUseCase(
     private val repository: PromotionRepository
 ) {
-    fun execute(id: Long, promotion: Promotion): Promotion {
-        val promotionUpdated = repository.findById(id) ?: throw PromotionNotFoundException(id)
+    fun execute(id: Long, promotionRequest: PromotionRequest): Promotion {
+        val promotion = repository.findById(id) ?: throw PromotionNotFoundException(id)
 
-        promotionUpdated.copy(
-            type = promotion.type,
-            value = promotion.value,
-            startAt = promotion.startAt,
-            endAt = promotion.endAt,
-            active = promotion.active,
-            priority = promotion.priority,
+        val promotionUpdated = promotion.copy(
+            type = promotionRequest.type,
+            value = promotionRequest.value,
+            startAt = promotionRequest.startAt,
+            endAt = promotionRequest.endAt,
+            active = promotionRequest.active,
+            priority = promotionRequest.priority,
             updatedAt = Instant.now()
         )
 

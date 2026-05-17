@@ -6,7 +6,7 @@ import java.time.Instant
 
 data class Promotion(
     val id: Long? = null,
-    val productId: Long,
+    val product: Product,
     val type: PromotionType,
     val value: BigDecimal,
     val startAt: Instant,

@@ -4,7 +4,9 @@ import br.com.jema.catalog_pricing_service.domain.Promotion
 import br.com.jema.catalog_pricing_service.domain.repository.PromotionRepository
 import br.com.jema.catalog_pricing_service.shared.exception.ProductNotFoundException
 import br.com.jema.catalog_pricing_service.shared.exception.PromotionNotFoundException
+import org.springframework.stereotype.Service
 
+@Service
 class GetPromotionUseCase(
     private val repository: PromotionRepository
 ) {

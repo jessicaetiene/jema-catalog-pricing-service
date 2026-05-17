@@ -5,8 +5,9 @@ import br.com.jema.catalog_pricing_service.domain.repository.PromotionRepository
 import br.com.jema.catalog_pricing_service.infrastructure.mapper.toDomain
 import br.com.jema.catalog_pricing_service.infrastructure.mapper.toEntity
 import br.com.jema.catalog_pricing_service.infrastructure.repository.JpaPromotionRepository
+import org.springframework.stereotype.Repository
 
-
+@Repository
 class PromotionPersistenceAdapter(
     val jpaPromotionRepository: JpaPromotionRepository
 ): PromotionRepository {
