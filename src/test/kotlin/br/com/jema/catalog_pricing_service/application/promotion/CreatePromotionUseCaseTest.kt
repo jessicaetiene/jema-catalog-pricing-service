@@ -27,7 +27,6 @@ class CreatePromotionUseCaseTest {
     private val productRepository = mockk<ProductRepository>()
     private val useCase = CreatePromotionUseCase(promotionRepository, productRepository)
 
-
     @Test
     fun `should create promotion successfully`() {
         val command = PromotionRequest(

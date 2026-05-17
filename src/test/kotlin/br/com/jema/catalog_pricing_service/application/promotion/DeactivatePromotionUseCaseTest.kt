@@ -22,7 +22,6 @@ class DeactivatePromotionUseCaseTest {
     private val promotionRepository = mockk<PromotionRepository>()
     private val useCase = DeactivatePromotionUseCase(promotionRepository)
 
-
     @Test
     fun `should deactivate promotion successfully`() {
         val id = 1L
