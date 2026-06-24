@@ -1,5 +1,6 @@
 package br.com.jema.catalog_pricing_service.infrastructure
 
+import br.com.jema.catalog_pricing_service.domain.Product
 import br.com.jema.catalog_pricing_service.domain.Promotion
 import br.com.jema.catalog_pricing_service.domain.repository.PromotionRepository
 import br.com.jema.catalog_pricing_service.infrastructure.mapper.toDomain
@@ -21,5 +22,9 @@ class PromotionPersistenceAdapter(
 
     override fun findAll(): List<Promotion> {
         return jpaPromotionRepository.findAll().map { it.toDomain() }
+    }
+
+    override fun findActivePromotionsByProduct(product: Product): List<Promotion> {
+        return jpaPromotionRepository.findByProductIdAndActiveTrue(product.id!!).map { it.toDomain() }
     }
 }
