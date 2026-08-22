@@ -12,7 +12,7 @@ class Inventory(
 
     reservedQuantity: Int,
 
-    val createdAt: Instant = Instant.now(),
+    val createdAt: Instant? = Instant.now(),
 
     updatedAt: Instant? = null
 
