@@ -1,4 +1,8 @@
 package br.com.jema.catalog_pricing_service.api.inventory
 
-class InventoryResponse {
-}
+data class InventoryResponse (
+    val id: Long,
+    val productId: Long?,
+    val quantity: Int,
+    val reservedQuantity: Int
+)
