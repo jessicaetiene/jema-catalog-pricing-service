@@ -5,8 +5,9 @@ import br.com.jema.catalog_pricing_service.domain.repository.InventoryRepository
 import br.com.jema.catalog_pricing_service.infrastructure.mapper.toDomain
 import br.com.jema.catalog_pricing_service.infrastructure.mapper.toEntity
 import br.com.jema.catalog_pricing_service.infrastructure.repository.JpaInventoryRepository
+import org.springframework.stereotype.Repository
 
-
+@Repository
 class InventoryPersistenceAdapter(
     val repository: JpaInventoryRepository
 ) : InventoryRepository {
@@ -20,5 +21,9 @@ class InventoryPersistenceAdapter(
 
     override fun findAll(): List<Inventory> {
         return repository.findAll().map { it.toDomain() }
+    }
+
+    override fun findByProductId(productId: Long): Inventory? {
+        return repository.findByProductId(productId)?.toDomain()
     }
 }
