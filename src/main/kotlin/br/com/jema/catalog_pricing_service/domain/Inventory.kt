@@ -47,6 +47,24 @@ class Inventory(
     val available: Boolean
         get() = availableQuantity > 0
 
+    fun updateStock(quantity: Int, reservedQuantity: Int) {
+        require(quantity >= 0) {
+            "Quantity cannot be negative."
+        }
+
+        require(reservedQuantity >= 0) {
+            "Reserved quantity cannot be negative."
+        }
+
+        require(reservedQuantity <= quantity) {
+            "Reserved quantity cannot exceed available quantity."
+        }
+
+        this.quantity = quantity
+        this.reservedQuantity = reservedQuantity
+        touch()
+    }
+
     fun increaseStock(amount: Int) {
         validatePositiveAmount(amount)
 
